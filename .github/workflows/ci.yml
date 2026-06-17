@@ -12,16 +12,20 @@ jobs:
 
     steps:
       - name: Clonar repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Instalar JDK
-        uses: actions/setup-java@v3
+      - name: Instalar JDK 17 (Temurin)
+        uses: actions/setup-java@v4
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'
 
-      - name: Compilar código Java
-        run: javac -d out src/*.java
+      - name: Compilar código fuente
+        run: |
+          mkdir -p out
+          javac -d out src/*.java
 
-      - name: Ejecutar pruebas
-        run: javac test/*.java && java -cp . test.MainTest
+      - name: Compilar y ejecutar pruebas
+        run: |
+          javac -cp out -d out test/*.java
+          java -ea -cp out MainTest
