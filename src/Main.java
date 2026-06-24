@@ -1,18 +1,17 @@
 import java.util.Scanner;
 
 /**
- * VERSIÓN 2 - Con validación de notas entre 0 y 20.
+ * VERSIÓN 3 - Promedio con tipo double.
  */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int nota1, nota2, nota3, promedio;
 
-        nota1 = leerNota(sc, 1);
-        nota2 = leerNota(sc, 2);
-        nota3 = leerNota(sc, 3);
+        int nota1 = leerNota(sc, 1);
+        int nota2 = leerNota(sc, 2);
+        int nota3 = leerNota(sc, 3);
 
-        promedio = (nota1 + nota2 + nota3) / 3;
+        double promedio = calcularPromedio(nota1, nota2, nota3);
         System.out.println("El promedio es: " + promedio);
         sc.close();
     }
@@ -24,5 +23,9 @@ public class Main {
             nota = sc.nextInt();
         } while (nota < 0 || nota > 20);
         return nota;
+    }
+
+    public static double calcularPromedio(int a, int b, int c) {
+        return (a + b + c) / 3.0;
     }
 }
