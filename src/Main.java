@@ -1,10 +1,7 @@
 import java.util.Scanner;
 
 /**
- * VERSIÓN 3 - Programa final para producción.
- * - Lee tres notas.
- * - Valida que cada nota esté entre 0 y 20.
- * - Calcula el promedio como double para evitar pérdida de decimales.
+ * VERSIÓN 3 - Promedio con tipo double.
  */
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +13,6 @@ public class Main {
 
         double promedio = calcularPromedio(nota1, nota2, nota3);
         System.out.println("El promedio es: " + promedio);
-
         sc.close();
     }
 
